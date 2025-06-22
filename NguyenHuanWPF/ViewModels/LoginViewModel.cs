@@ -88,8 +88,8 @@ namespace NguyenHuanWPF.ViewModels
                 }
 
                 // Check for customer login
-                Customer? customer = _customerService.GetCustomerByEmail(Email);
-                if (customer != null && customer.Password == password)
+                Customer? customer = _customerService.Login(Email, password);
+                if (customer != null && customer.CustomerStatus == 1)
                 {
                     // Customer login successful
                     OnLoginSuccessful(false, customer.CustomerID);

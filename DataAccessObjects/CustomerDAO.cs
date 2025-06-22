@@ -47,7 +47,7 @@ namespace DataAccessObjects
         public Customer? GetCustomerByEmail(string email)
         {
             using var context = new HotelDbContext();
-            return context.Customers.Where(c => c.EmailAddress == email).FirstOrDefault();
+            return context.Customers.Where(c => c.EmailAddress == email && c.CustomerStatus == 1).FirstOrDefault();
         }
 
         // Add a new customer
